@@ -17,7 +17,7 @@ const batteryStore = {};
 
 var mqttClient = {};
 
-// Overwriting (Mantenuto da Lanrat)
+
 console.logReal = console.log;
 console.errorReal = console.error;
 console.log = function () {
@@ -121,7 +121,7 @@ console.error = function () {
             pageNumberStr === "/" ? 0 : parseInt(pageNumberStr.substr(1));
             
         // ------------------------------------------------------------------
-        // AGGIUNTA LOGICA LETTURA PARAMETRI BATTERIA (da Sibbl)
+        //
         const batteryLevel = parseInt(url.searchParams.get("batteryLevel"));
         const isCharging = url.searchParams.get("isCharging");
         // ------------------------------------------------------------------
@@ -174,7 +174,7 @@ console.error = function () {
             response.end(data);
 
             // ------------------------------------------------------------------
-            // AGGIUNTA LOGICA SALVATAGGIO STATO BATTERIA (da Sibbl)
+            // 
             let pageBatteryStore = batteryStore[pageIndex];
             if (!pageBatteryStore) {
                 pageBatteryStore = batteryStore[pageIndex] = {
@@ -226,7 +226,7 @@ console.error = function () {
 })();
 
 // ------------------------------------------------------------------
-// NUOVA FUNZIONE: Send Battery Level via Webhook (da Sibbl)
+// 
 // ------------------------------------------------------------------
 function sendBatteryLevelToHomeAssistant(
     pageIndex,
@@ -417,7 +417,6 @@ async function renderAndConvertPageAsync(browser, pageConfig) {
 }
 
 // ------------------------------------------------------------------
-// SOSTITUZIONE: renderUrlToImageAsync (Prende la versione Sibbl per la Qualità/Scaling)
 // ------------------------------------------------------------------
 async function renderUrlToImageAsync(browser, pageConfig, url, path) {
     let page;
@@ -489,7 +488,7 @@ async function renderUrlToImageAsync(browser, pageConfig, url, path) {
 // ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
-// SOSTITUZIONE: convertImageToCompatiblePngAsync (Prende la versione Sibbl per la Qualità E-Ink)
+//
 // ------------------------------------------------------------------
 function convertImageToKindleCompatiblePngAsync(
     pageConfig,
