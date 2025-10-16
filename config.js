@@ -53,6 +53,8 @@ module.exports = {
   browserLaunchTimeout: process.env.BROWSER_LAUNCH_TIMEOUT || 30000,
   language: process.env.LANGUAGE || "en",
   debug: process.env.DEBUG === "true",
+  realTime: process.env.REAL_TIME === "true",
+  realTimeCacheSec: parseInt(process.env.REAL_TIME_CACHE_SEC) || 5, // Default
   ignoreCertificateErrors:
     process.env.UNSAFE_IGNORE_CERTIFICATE_ERRORS === "true",
 };
